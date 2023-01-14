@@ -44,7 +44,7 @@ export const CountryDetail = () => {
   return (
     <div className='px-[1.5rem] py-[1.5rem] bg-[#FAFAFA] h-full dark:bg-[#202C37]   md:px-[5rem] py-[2.5rem] '>
       <div className='py-[1.5rem]'>
-        <Link to='/'>
+        <Link to='/rest-countries'>
         <button  className='transition ease-in-out delay-300   hover:-translate-y-1 hover:scale-110  duration-300 bg-[#fff] h-[2.1rem] w-[7rem] flex items-center justify-center gap-4 drop-shadow-md rounded-md text-md  dark:bg-[#2B3945] dark:text-[#fff] ' > <BiArrowBack className='text-xl'/>
             Back
            </button>

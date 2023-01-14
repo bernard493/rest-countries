@@ -29,7 +29,7 @@ function App() {
               toggleTheme={toggleTheme}
            />
      <Routes>
-            <Route path="/"  element={
+            <Route path="/rest-countries"  element={
               <CountryContext.Provider value={countryDetailProvider}>
                 <Main/>
               </CountryContext.Provider>
@@ -39,7 +39,7 @@ function App() {
                 <CountryDetail/>
               </CountryContext.Provider>
             } />
-       
+           
      </Routes> 
       
      
