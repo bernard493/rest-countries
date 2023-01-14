@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState ,useEffect, useMemo } from "react";
+import {Navbar } from './Components/index'
+import { Main , CountryDetail} from './Pages/index'
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import {CountryContext} from './Context/CountryContext'
+
 
 function App() {
+  const [theme, setTheme] = useState("light")
+  const [countryInformation,setCountryInformation] = useState(null) //null
+  const countryDetailProvider = useMemo(()=>({countryInformation,setCountryInformation}),[countryInformation,setCountryInformation])
+    
+  useEffect(()=>{
+    theme === "dark"?
+     document.documentElement.classList.add("dark"):
+     document.documentElement.classList.remove("dark")
+  },[theme])
+ 
+  function toggleTheme(){
+    setTheme(theme === "light"? "dark": "light")
+  }
+
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+         <Navbar
+              theme={theme} 
+              toggleTheme={toggleTheme}
+           />
+     <Routes>
+            <Route path="/"  element={
+              <CountryContext.Provider value={countryDetailProvider}>
+                <Main/>
+              </CountryContext.Provider>
+            } />
+            <Route path="countrydetail"   element={
+              <CountryContext.Provider value={countryDetailProvider}>
+                <CountryDetail/>
+              </CountryContext.Provider>
+            } />
+       
+     </Routes> 
+      
+     
+    </BrowserRouter>
+    
   );
 }
 
