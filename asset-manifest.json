@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/rest-countries/static/css/main.2e490b81.css",
+    "main.js": "/rest-countries/static/js/main.dba8dc19.js",
+    "static/media/331-loader-2-lineal.gif": "/rest-countries/static/media/331-loader-2-lineal.568a23cd974287ad0a09.gif",
+    "index.html": "/rest-countries/index.html",
+    "main.2e490b81.css.map": "/rest-countries/static/css/main.2e490b81.css.map",
+    "main.dba8dc19.js.map": "/rest-countries/static/js/main.dba8dc19.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e490b81.css",
+    "static/js/main.dba8dc19.js"
+  ]
+}
