@@ -3,14 +3,14 @@ import { CountryContext } from '../../Context/CountryContext'
 
 
 export const BorderCountry = ({index,border}) => {
-    const {countryInformation,setCountryInformation} = useContext(CountryContext)
+    const {setCountryInformation} = useContext(CountryContext)
     const [borderSelected ,setBorderSelected] = useState('')
     const borderApiUrl = 'https://restcountries.com/v2/alpha/'
 
 
 {/** get details  border country user clicked  */}
     useEffect(()=>{
-        if(borderSelected != ''){
+        if(borderSelected !== ''){
             const getBorderDetails = async()=>{
                 try{
                   const response = await fetch(`${borderApiUrl}${borderSelected}`);
@@ -32,7 +32,7 @@ export const BorderCountry = ({index,border}) => {
   
    
     function  borderDetails(){
-        setBorderSelected(border)
+        setBorderSelected(prevBorder => border)
        
     } 
     

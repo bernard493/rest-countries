@@ -7,9 +7,11 @@ import {CountryContext} from './Context/CountryContext'
 
 function App() {
   const [theme, setTheme] = useState("light")
-  const [countryInformation,setCountryInformation] = useState(null) //null
+  const [countryInformation,setCountryInformation] = useState(null) 
   const countryDetailProvider = useMemo(()=>({countryInformation,setCountryInformation}),[countryInformation,setCountryInformation])
     
+
+
   useEffect(()=>{
     theme === "dark"?
      document.documentElement.classList.add("dark"):

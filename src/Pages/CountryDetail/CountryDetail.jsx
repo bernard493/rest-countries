@@ -6,7 +6,7 @@ import { BorderCountry } from '../../Components/Country/BorderCountry';
 
 export const CountryDetail = () => {
   {/** data of country user clicked */}
-   const {countryInformation,setCountryInformation} = useContext(CountryContext)
+   const {countryInformation} = useContext(CountryContext)
    const [hasBorders ,setHasBorders] = useState(false)
    const [border ,setBorder] = useState([]);
    

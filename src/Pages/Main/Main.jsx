@@ -1,38 +1,21 @@
-import React, { useState,useEffect ,useContext } from 'react';
-import {nanoid} from "nanoid"
+import React, { useState ,useContext } from 'react';
 import {BiSearchAlt2} from 'react-icons/bi'
 import {Country ,Loading} from '../../Components/index'
 import { CountryContext } from '../../Context/CountryContext'
+import { useFetch } from '../../hooks/useFetch';
 
 const regions = ['All','Africa','America','Asia','Europe','Oceania']
 
 
 export const Main = () => {
-  const [countries, setCountries] = useState([])
+  const [countries] = useFetch("https://restcountries.com/v2/all")
   const [region ,setRegion] = useState('')
   const [search,setSearch ] = useState('')
-  const {countryInformation,setCountryInformation} = useContext(CountryContext)
+  const {setCountryInformation} = useContext(CountryContext)
 
 
 
-  useEffect( ()=>{
-    const getData = async() => {
-      try {
-        const response = await fetch("https://restcountries.com/v2/all");
-        const data = await response.json()
-        setCountries(data.map(country=> {
-          return {
-            id:nanoid(),
-            ...country
-          }
-        }))
-
-      } catch(error){
-        console.log(error)
-      }
-    }
-    getData()
-  },[])
+ 
 
    {/** find courtly user clicked */}
   function countryDetailIndex(e,id){
